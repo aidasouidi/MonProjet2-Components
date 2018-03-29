@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router';
-
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -10,25 +8,20 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductsService } from './services/products.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
-const routes = [
-  {path: '', component: WelcomeComponent},
-  {path: 'list', component: ProductsListComponent},
-  {path: '**', component: NotFoundComponent},
-];
+import { AppRoutingModule } from './routing_module/app-routing.module';
 
 @NgModule({
   declarations: [
+    ProductsListComponent,
+    WelcomeComponent,
+    NotFoundComponent,
     AppComponent,
     NavbarComponent,
-    ProductsListComponent,
-    FooterComponent,
-    WelcomeComponent,
-    NotFoundComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
